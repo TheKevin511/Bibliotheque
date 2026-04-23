@@ -1,0 +1,348 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color : #F4F7F6;
+    --principal : #2C3E50;
+    --vert : #2ECC71;
+    --rouge : #E74C3C;
+    --bleu : #0077B5;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Body */
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:var(--bg-color) ;
+    padding: 0 10%;
+}
+
+/* Heaer */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 250px;
+    margin-bottom: 30px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+h1, h2,h3{
+    color : var(--principal)
+}
+
+header #stats{
+    display: flex;
+    gap: 50px;
+    
+}
+
+#stats .stats-number{
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: white;
+    width: 300px;
+    height: 130px;
+    text-align: center;
+    padding-top: 20px;
+    transition: 0.4s ease-in-out;
+}
+
+#stats .stats-number:hover{
+    transform: translateY(-5px);
+    box-shadow:0 4px 6px rgba(0,0,0,0.20) ;
+}
+
+
+
+/* Les chiffres des stats */
+#total ,#lus , #nonLus{
+    font-size: 45px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+#total{
+    color : var(--bleu)
+}
+#lus{
+    color: var(--vert);
+}
+#nonLus{
+    color: var(--rouge);
+}
+
+
+/* Le formulaire */
+.section-form form{
+    margin-top: 20px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+/* La grille des champs */
+form .champs{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows: repeat(2,35px);
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+/* Les differents champs */
+.champs input{
+    font-size: 17px;
+    color: var(--principal);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.20);
+    transition: 0.1s ease-in-out;
+
+}
+
+.champs input:focus{
+    border: 1px solid var(--bleu);
+    outline: 3px solid #0076b540;
+}
+
+/* bouton Ajouter */
+form #btn , #btn2{
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    background-color: var(--vert);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+form #btn:hover{
+    background-color: rgb(43, 182, 101);
+}
+
+/* Section de recherhce de livre et vider la bibliothèque */
+.section-recherche .recherche-and-vider{
+    display: grid;
+    grid-template-columns: 78% 20%;
+    grid-template-rows: 40px;
+    gap: 2%;
+    margin-bottom: 30px;
+}
+
+/* Le input de recherche */
+.recherche-and-vider input{
+    font-size: 17px;
+    padding-left:40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.20);
+    background-color: white;
+    color: var(--principal);
+}
+
+.recherche-and-vider input:focus{
+    border: 1px solid var(--bleu);
+    outline: 2px solid #0076b540;
+}
+
+/* Logo de loupe de recherche */
+.section-recherche i{
+    position: relative;
+    top: 30px;
+    left: 10px;
+}
+
+/* Le bouton pour vider la bibliothèque */
+.recherche-and-vider #clear{
+    border: 1px solid var(--rouge);
+    border-radius: 20px;
+    background-color: rgba(231, 77, 60, 0.096);
+    color: var(--rouge);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.recherche-and-vider #clear:hover{
+    background-color: var(--rouge);
+    color: white;
+}
+
+
+#listeLivres{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    min-height: 50vh;
+    margin-top: 30px;
+}    
+
+/* Les differents livres */
+.livre {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    box-shadow: var(--shadow);
+    padding: 15px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    animation: livre 0.4s ease-in-out;
+}
+@keyframes livre {
+    from{
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+}
+.livre:hover{
+    transform: translateY(-5px);
+}
+
+/* L'indicateur de lu ou non lu */
+.livre span{
+    text-align: center;
+    position: relative;
+    left: 80%;
+    width: 60px;
+    color: var(--principal);
+}
+
+.livre.lu span{
+    background-color: var(--vert);
+    color: white;
+    padding: 3px;
+    border-radius: 20px;
+}
+
+/* Titre des livres */
+.livre h3{
+    font-size: 23px;
+}
+
+/* Les paragraphe du livres */
+.livre p{
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 15px;
+}
+
+/* Le nom de l'auteur */
+.livre .author{
+    font-style: italic; 
+    color: #95a5a6;
+    font-size: 1rem;
+}
+
+/* Les bouton supprimer et modifier de chaque livres */
+.btn-edit-remove{
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.livre .btn-remove , .btn-edit{
+    height:40px;
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--rouge);
+    color: white;
+    font-weight: 600;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-edit{
+    background-color: var(--principal);
+}
+
+.btn-remove:hover , .btn-edit:hover{
+    transform: scale(1.05);
+}
+.livre:hover .btn-remove , .livre:hover .btn-edit{
+    opacity: 1;
+}
+
+/* Le message  "aucun resultat" */
+.aucun-resultat{
+    font-size: 20px;
+    position: relative;
+    left: 450px;
+    top: 40px;
+}
+
+
+
+
+
+
+
+
+/* RESPONSIVE TABLETTE*/
+@media screen and (max-width : 768px ) {
+
+    /* Les stats */
+    #stats .stats-number{
+        width: 150px;
+    }
+
+    /* Les champs de saisi du formulaire */
+    form .champs{
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+        grid-template-rows: repeat(4,35px);
+    }
+
+    /* la ligne de recherche et le bouton pour vider  */
+    .section-recherche .recherche-and-vider{
+        grid-template-columns: 65% 33%;
+    }
+
+    /* Le message de "aucun resultat" pour la recherche des livres*/
+    .aucun-resultat{
+        position: initial;
+    }
+}
+
+
+
+/* RESPONSIVE SMARTPHONE */
+@media screen and (max-width : 468px ){
+
+    /* Le grand titre */
+    header h1{
+        font-size: 35px;
+        padding-top: 20px;
+    }
+
+    /* Les stats */
+    header #stats{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #stats .stats-number{
+        width: 270px;
+    }
+
+    .livre .btn-remove{
+        opacity: 1;
+    }
+}
+
+

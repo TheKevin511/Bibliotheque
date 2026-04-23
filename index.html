@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/4146d8b2dd.js" crossorigin="anonymous"></script>
+  <title>Ma Bibliothèque</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Ma Bibliothèque</h1>
+    </div>
+    
+    <!-- Statistiques -->
+    <div id="stats">
+      <div class="stats-number">
+        <p>Total</p>
+        <p id="total">0</p>
+      </div>
+
+      <div class="stats-number">
+        <p>Lus</p>
+        <p id="lus">0</p>
+      </div>
+
+      <div class="stats-number">
+        <p>Non lus</p>
+        <p id="nonLus">0</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+
+    <!-- Formulaire d'ajout -->
+    <section class="section-form">
+      <h2>Ajouter un livre</h2>
+      <form id="formulaire">
+        <div class="champs">
+          <input type="text" id="titre" placeholder="Titre" autocomplete="off" required>
+          <input type="text" id="auteur" placeholder="Auteur" autocomplete="off" required>
+          <input type="number" id="annee" placeholder="Année" autocomplete="off" required>
+          <input type="text" id="genre" placeholder="Genre" autocomplete="off" required>
+        </div>
+        
+        <label>
+          <input type="checkbox" id="lu"> Déjà lu
+        </label>
+        <br><br>
+        <button type ="submit" id="btn" >Ajouter le livre</button>
+        <button type ="submit" id="btn2" style="display: none; background-color: #2C3E50;">Valider</button>
+      </form>
+    </section>
+  
+  
+  
+    <!-- Recherche -->
+     <section class="section-recherche">
+
+      <!-- Logo de recherche -->
+      <label for="recherche">
+        <i class="fa-solid fa-magnifying-glass" style="color:rgba(0,0,0,0.3);"></i>
+      </label>
+
+      <div class="recherche-and-vider">
+        <input type="text" id="recherche" placeholder="Rechercher par titre" >
+        <button id="clear">Vider la bibliothèque</button>
+      </div>
+
+     </section>
+    
+    <!-- Liste des livres -->
+    <section class="section-livres">
+      <h2>Mes livres</h2>
+      <div id="listeLivres"></div>
+    </section>
+  </main>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
